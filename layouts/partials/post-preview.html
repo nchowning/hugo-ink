@@ -11,15 +11,19 @@
 		</h4>
 		<span class="description">
             {{ if isset .Params "youtube" }}
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ .Youtube }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="preview-youtube">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ .Params.youtube }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
             {{ end }}
-			{{ if isset .Params "description" }}
-				{{ .Description }}
-			{{ else if gt (countrunes (.Content | plainify)) 120 }}
-				{{ slicestr (.Content | plainify) 0 120 | safeHTML }}...
-			{{ else }}
-				{{ .Content | plainify | safeHTML }}
-			{{ end }}
+            <div class="preview-text">
+			    {{ if isset .Params "description" }}
+			    	{{ .Description }}
+			    {{ else if gt (countrunes (.Content | plainify)) 120 }}
+			    	{{ slicestr (.Content | plainify) 0 120 | safeHTML }}...
+			    {{ else }}
+			    	{{ .Content | plainify | safeHTML }}
+			    {{ end }}
+            </div>
 		</span>
 	</div>
 </div>
