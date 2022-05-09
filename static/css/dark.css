@@ -4,13 +4,13 @@ html.dark body {
 }
 
 html.dark ::-moz-selection {
-  background: #9375fd;
+  background: #32cd32;
   color: #fff;
   text-shadow: none
 }
 
 html.dark ::selection {
-  background: #9375fd;
+  background: #32cd32;
   color: #fff;
   text-shadow: none
 }
@@ -32,9 +32,12 @@ html.dark h6 {
   color: #ddd;
 }
 
-html.dark a,a:hover {
-  color: #9375fd;
+html.dark a {
+  color: #32cd32;
   text-decoration: none;
+}
+html.dark a:hover {
+  color: #000000;
 }
 
 html.dark table tbody tr:nth-of-type(even) {
@@ -59,6 +62,9 @@ html.dark .post-tags .tags a {
 html.dark .site-title a {
   color: #ddd;
   text-decoration: none !important;
+}
+html.dark .site-title a:hover {
+  color: #000000;
 }
 
 html.dark .header nav,

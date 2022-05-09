@@ -9,12 +9,16 @@ body {
 }
 
 a {
-    color: #000000;
+    color: #32cd32;
     text-decoration: none;
     word-break: break-word;
 }
+    a:active, a:link, a:visited {
+        color: #32cd32;
+    }
     a:hover {
-        border-bottom: 2px solid #000000;
+        background: #32cd32;
+        color: #000000;
     }
 
 html,button,input,select,textarea {
@@ -28,7 +32,7 @@ html,button,input,select,textarea {
 }
 
 ::selection {
-    background: #000000;
+    background: #32cd32;
     text-shadow: none;
     color: #fff;
 }
@@ -244,8 +248,12 @@ ul {
         color: #333;
         text-decoration: none !important;
     }
+    .site-title a:visited {
+        color: #333;
+    }
     .site-title a:hover {
-        border-bottom-width: 3px;
+        border-top: 3px solid #333;
+        border-bottom: 3px solid #333;
     }
 
 .header .site-description {
