@@ -56,5 +56,37 @@
 		</div>
 	</div>
 	{{ partial "footer.html" . }}
+
+    {{ if or ( .HasShortcode "audio" ) ( .HasShortcode "video" ) }}
+
+        <link rel="stylesheet" href="/css/plyr.css">
+
+        <script src="/js/plyr.polyfilled.js" crossorigin="anonymous"></script>
+        <script>
+          (function() {
+            const players = Array.from(document.querySelectorAll('.player')).map(
+                p => new Plyr(p, {
+                    controls: ['play', 'current-time', 'progress', 'duration', 'mute', 'volume', 'download', 'fullscreen'],
+                    resetOnEnd: true,
+                })
+            );
+            players.forEach(function(p, i){
+                /* Stop other players when starting */
+                p.on('play', event => {
+                    const instance = event.detail.plyr;
+                    console.log('Stop others players');
+                    players.forEach(function(p){ if(p != instance) p.stop()});
+                })
+                /* Play the next track if there are multiple players */
+                p.on('ended', () => {
+                    if (i + 1 < players.length) {
+                        players[i + 1].play()
+                    }
+                })
+            });
+        })();
+        </script>
+
+    {{ end }}
 </body>
 </html>
