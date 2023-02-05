@@ -59,9 +59,9 @@
 
     {{ if or ( .HasShortcode "audio" ) ( .HasShortcode "video" ) }}
 
-        <link rel="stylesheet" href="/css/plyr.css">
+        <link rel="stylesheet" href="https://cdn.plyr.io/3.7.3/plyr.css">
 
-        <script src="/js/plyr.polyfilled.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.plyr.io/3.7.3/plyr.polyfilled.js" crossorigin="anonymous"></script>
         <script>
           (function() {
             const players = Array.from(document.querySelectorAll('.player')).map(
