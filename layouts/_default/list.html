@@ -15,7 +15,7 @@
 		{{ .Content }}
 
 		<ul class="posts flat">
-			{{ $paginator := .Paginate (where .Data.Pages "Params.hidden" "ne" true) }}
+			{{ $paginator := .Paginate (where .Pages "Params.hidden" "ne" true) }}
 			{{ range $paginator.Pages }}
 				<li class="post">
 					{{ partial "post-preview.html" . }}
